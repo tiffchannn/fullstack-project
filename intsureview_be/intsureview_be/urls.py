@@ -5,15 +5,15 @@ from django.urls import include, path
 from rest_framework import routers
 from intsureview_be.apps.api import views # this is the application
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-]
-
 router = routers.DefaultRouter()
 
 # Register our models
-router.register(r"users", views.UserViewSet)
-router.register(r"groups", views.GroupViewSet)
+router.register(r"workouts", views.WorkoutViewSet, 'workout')
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('api/', include(router.urls)), # the URL path for the API
+]
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

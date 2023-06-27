@@ -1,14 +1,9 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from intsureview_be.apps.api.models import Workout
 
+# converts model instances to JSON so that the frontend can work with the received data.
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class WorkoutSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ["url", "username", "email", "groups"]
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ["url", "name"]
+        model = Workout
+        fields = ("type", "completed", "date", "location", "workout_length")
