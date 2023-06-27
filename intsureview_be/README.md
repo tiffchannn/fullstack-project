@@ -10,5 +10,5 @@
 - A .envrc file will auto load the virtual environment for python if you're using `direnv`
 - With direnv, you do not need `poetry run` before your python commands
 
-- Activate venv: `source djangoTc/bin/activate`
+- Activate venv: `source intsureview_be-Gc3GHPLU/bin/activate`
 - Installed Django: `pipenv install django`
