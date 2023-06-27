@@ -12,3 +12,6 @@
 
 - Activate venv: `source intsureview_be-Gc3GHPLU/bin/activate`
 - Installed Django: `pipenv install django`
+- Created Migrations File: python manage.py makemigrations api
+- Apply DB changes: python manage.py migrate api
+- user --> superuser
