@@ -3,18 +3,6 @@ import React, { useState } from "react";
 // import { navigate } from "@reach/router";
 
 const WorkoutForm = (props) => {
-  const [name, setName] = useState(props.name);
-  const [imageUrl, setImageUrl] = useState(props.imageUrl);
-  const [numOfTreasureChests, setNumOfTreasureChests] = useState(
-    props.numOfTreasureChests
-  );
-  const [catchPhrase, setCatchPhrase] = useState(props.catchPhrase);
-  const [crewPosition, setCrewPosition] = useState(props.crewPosition);
-  const [pegLeg, setPegLeg] = useState(props.pegLeg);
-  const [eyePatch, setEyePatch] = useState(props.eyePatch);
-  const [hookHand, setHookHand] = useState(props.hookHand);
-  const [errors, setErrors] = useState([]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
