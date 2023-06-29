@@ -38,9 +38,8 @@ export default function Workouts() {
               </Card.Subtitle>
               <Card.Text>{workout.completed}</Card.Text>
               <Card.Text>{workout.workout_length}</Card.Text>
-              <p>{workout.id}</p>
 
-              <Link className="btn btn-primary mr-2" to={`/${workout.id}/`}>
+              <Link className="btn btn-warning mr-2" to={`/${workout.id}/`}>
                 See Workout
               </Link>
             </Card.Body>
@@ -49,18 +48,4 @@ export default function Workouts() {
       </div>
     </>
   );
-}
-
-{
-  /* <Card style={{ width: '18rem' }}>
-<Card.Img variant="top" src="holder.js/100px180" />
-<Card.Body>
-  <Card.Title>{workout.type}</Card.Title>
-  <Card.Subtitle className="mb-2 text-muted">{workout.location}</Card.Subtitle>
-  <Card.Subtitle className="mb-2 text-muted">{workout.date}</Card.Subtitle>
-  <Card.Text>{workout.completed}</Card.Text>
-  <Card.Text>{workout.workout_length}</Card.Text>
-  <Button variant="primary">Go somewhere</Button>
-</Card.Body>
-</Card> */
 }

@@ -27,6 +27,10 @@
   }
 }
 
+.navbar {
+  background: rgb(245, 240, 225);
+}
+
 .header-title {
   font-family: Garamond, Georgia, sans-serif;
   text-decoration: none;
@@ -62,17 +66,9 @@
 .workouts-card-info {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin: 5px;
   padding: 2px;
-}
-
-.email-link {
-  font-family: Garamond, Georgia, sans-serif;
-  text-decoration: none;
-}
-
-footer {
-  align-items: flex-end;
 }
 
 .workout-info {
@@ -82,5 +78,18 @@ footer {
   text-decoration: #282c34;
   margin: 15px;
   padding: 5px;
+}
 
+.email-link {
+  font-family: Garamond, Georgia, sans-serif;
+  text-decoration: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  background: rgb(245, 240, 225);
+    padding-top: 15px;
 }

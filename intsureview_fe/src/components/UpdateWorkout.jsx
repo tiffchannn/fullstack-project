@@ -22,7 +22,7 @@ export default function UpdateWorkout() {
     console.log("Data: ", data);
     console.log("🚀 ~ Update Workout Data:", data);
 
-    // Allows us to access all of our saved form data
+    // Allows us to access all of our previously saved form data
     setType(data.type);
     setDate(new Date(data.date)); // converts the date back to the acceptable date format
     setLocation(data.location);
@@ -51,7 +51,7 @@ export default function UpdateWorkout() {
       .then((response) => {
         console.log("🚀 ~ Response Data: ", response.data);
         alert("Successfully updated workout!");
-        navigate("/");
+        navigate(`/${id}`);
       })
       .catch((err) => {
         const errorResponse = err.response.request.response;
@@ -68,7 +68,7 @@ export default function UpdateWorkout() {
 
   return (
     <>
-      <h1>Update Page</h1>
+      <h1>Update Workout</h1>
 
       <div className="container">
         {/* Workout Type */}
@@ -141,7 +141,7 @@ export default function UpdateWorkout() {
         </div>
 
         {/* Submit Button */}
-        <button className="btn btn-success" onClick={UpdateWorkoutInfo}>
+        <button className="btn btn-outline-primary" onClick={UpdateWorkoutInfo}>
           Update Workout!
         </button>
       </div>

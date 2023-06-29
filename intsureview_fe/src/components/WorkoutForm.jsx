@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useParams } from "react-router";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-let moment = require("moment");
+import moment from "moment";
 
 const WorkoutForm = () => {
   const [type, setType] = useState("");
@@ -14,6 +15,7 @@ const WorkoutForm = () => {
   const [errorsObj, setErrorsObj] = useState({});
 
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const AddWorkoutInfo = async () => {
     let formField = new FormData();
@@ -32,7 +34,7 @@ const WorkoutForm = () => {
       .then((response) => {
         console.log(response.data);
         alert("Successfully added workout!");
-        navigate("/workouts");
+        navigate(`/${response.data.id}`);
       })
       .catch((err) => {
         const errorResponse = err.response.request.response;
@@ -42,10 +44,6 @@ const WorkoutForm = () => {
         Object.keys(errorResponseObject).forEach((key) => {
           errorsObjConverted[key] = errorResponseObject[key].join(" ");
         });
-        console.log(
-          "🚀 ~ file: WorkOutForm.jsx:49 ~ AddWorkoutInfo ~ errorsObjConverted:",
-          errorsObjConverted
-        );
 
         setErrorsObj(errorsObjConverted);
       });

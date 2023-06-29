@@ -4,8 +4,8 @@ import { Nav, Navbar } from "react-bootstrap";
 
 export default function Header() {
   return (
-    <div>
-      <Navbar bg="light" expand="lg">
+    <div className="navbar">
+      <Navbar expand="lg">
         <NavLink className="header-title" to="/">
           Rise Up
         </NavLink>
