@@ -6,4 +6,8 @@ from intsureview_be.apps.api.models import Workout
 class WorkoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout
-        fields = ("type", "completed", "date", "location", "workout_length")
+        fields = ("type",
+            "completed",
+            "date",
+            "location",
+            "workout_length")
