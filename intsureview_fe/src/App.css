@@ -14,17 +14,6 @@
   }
 }
 
-.App-header {
-  background-color: #8297bf;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /* color: white; */
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -38,6 +27,20 @@
   }
 }
 
-.main-header{
-  align-items: center;
+.workouts-header {
+  font-family: Garamond, Georgia, sans-serif;
+  /* font-style: italic; */
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.add-workout-header {
+  font-family: Garamond, Georgia, sans-serif;
+  /* font-style: italic; */
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 18px;
+  font-weight: 600;
 }
