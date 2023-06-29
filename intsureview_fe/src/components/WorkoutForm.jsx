@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 let moment = require("moment");
 
-const WorkoutForm = (props) => {
+const WorkoutForm = () => {
   const [type, setType] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");

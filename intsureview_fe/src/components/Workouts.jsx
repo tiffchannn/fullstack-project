@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
+  const { id } = useParams();
 
   const getWorkouts = async () => {
-    // const response = await axios.get("http://localhost:8000/api/workouts");
     const response = await axios.get("http://localhost:8000/api");
     setWorkouts(response.data);
   };
@@ -36,6 +38,11 @@ export default function Workouts() {
               </Card.Subtitle>
               <Card.Text>{workout.completed}</Card.Text>
               <Card.Text>{workout.workout_length}</Card.Text>
+              <p>{workout.id}</p>
+
+              <Link className="btn btn-primary mr-2" to={`/${workout.id}/`}>
+                See Workout
+              </Link>
             </Card.Body>
           </Card>
         ))}
