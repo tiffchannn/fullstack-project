@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-// TODO
-/*
-  [] Validate one input
-  [] Fix date format - not saving the selected date
-  [] Navigate is redirecting to home page
-*/
+let moment = require("moment");
 
 const WorkoutForm = (props) => {
   const [type, setType] = useState("");
@@ -17,13 +11,15 @@ const WorkoutForm = (props) => {
   const [location, setLocation] = useState("");
   const [workoutLength, setWorkoutLength] = useState("");
   const [completed, setCompleted] = useState("");
-  // const [errors, setErrors] = useState([]);
+  const [errorsObj, setErrorsObj] = useState({});
+
+  const navigate = useNavigate();
 
   const AddWorkoutInfo = async () => {
     let formField = new FormData();
 
     formField.append("type", type);
-    formField.append("date", date);
+    formField.append("date", moment(date).format("yyyy-MM-DD"));
     formField.append("location", location);
     formField.append("completed", completed);
     formField.append("workout_length", workoutLength);
@@ -32,20 +28,39 @@ const WorkoutForm = (props) => {
       method: "post",
       url: "http://127.0.0.1:8000/api/",
       data: formField,
-    }).then((response) => {
-      console.log(response.data);
-      navigate("/");
-    });
+    })
+      .then((response) => {
+        console.log(response.data);
+        alert("Successfully added workout!");
+        navigate("/workouts");
+      })
+      .catch((err) => {
+        const errorResponse = err.response.request.response;
+        const errorResponseObject = JSON.parse(errorResponse);
+        const errorsObjConverted = {};
+
+        Object.keys(errorResponseObject).forEach((key) => {
+          errorsObjConverted[key] = errorResponseObject[key].join(" ");
+        });
+        console.log(
+          "🚀 ~ file: WorkOutForm.jsx:49 ~ AddWorkoutInfo ~ errorsObjConverted:",
+          errorsObjConverted
+        );
+
+        setErrorsObj(errorsObjConverted);
+      });
   };
 
   return (
-    <div class="container">
+    <div className="container">
       {/* Workout Type */}
-      <div class="form-group">
+      <div className="form-group">
         <label for="workoutType">Type of Workout</label>
+        <p style={{ color: "red" }}> {errorsObj.type} </p>
         <input
+          required
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="What did you do today?"
           name="type"
           value={type}
@@ -54,31 +69,24 @@ const WorkoutForm = (props) => {
       </div>
 
       {/* Date */}
-      {/* Need to fix date format */}
-      <div class="form-group">
+      <div className="form-group">
         <label>Date:</label>
+        <p style={{ color: "red" }}> {errorsObj.date} </p>
         <DatePicker
           closeOnScroll={true}
           selected={date}
           dateFormat="yyyy-MM-dd"
           onChange={(d) => setDate(d)}
         />
-        {/* <input
-          type="text"
-          class="form-control"
-          placeholder="Use this format Year-Month-Day"
-          name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        /> */}
       </div>
 
       {/* Location */}
-      <div class="form-group">
+      <div className="form-group">
         <label for="location">Location</label>
+        <p style={{ color: "red" }}> {errorsObj.location} </p>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Enter Location"
           name="location"
           value={location}
@@ -86,12 +94,13 @@ const WorkoutForm = (props) => {
         />
       </div>
 
-      {/* workout length */}
-      <div class="form-group">
-        <label for="location">Workout Length</label>
+      {/* Workout Length */}
+      <div className="form-group">
+        <label for="workoutLength">Workout Length</label>
+        <p style={{ color: "red" }}> {errorsObj.workout_length} </p>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Enter Workout Length"
           name="workoutLength"
           value={workoutLength}
@@ -117,8 +126,6 @@ const WorkoutForm = (props) => {
       <button className="btn btn-success" onClick={AddWorkoutInfo}>
         Add Workout!
       </button>
-
-      {/* {errors.map( (err, index) => <h3 className="errors" key={index}> {err}</h3>)} */}
     </div>
   );
 };

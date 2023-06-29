@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, navigate } from "@reach/router";
 import Header from "../components/Header";
 import WorkoutForm from "../components/WorkoutForm";
 
@@ -19,11 +18,7 @@ const Main = () => {
         </div>
 
         {/* Let's go Button */}
-        <button
-          type="submit"
-          class="btn btn-primary"
-          onClick={(e) => navigate("/pirate/new")}
-        >
+        <button type="submit" className="btn btn-primary">
           Let's Rise!
         </button>
 

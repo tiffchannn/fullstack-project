@@ -27,22 +27,36 @@
   }
 }
 
+.header-title {
+  font-family: Garamond, Georgia, sans-serif;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  color: black
+}
+
 .workouts-header {
   font-family: Garamond, Georgia, sans-serif;
-  /* font-style: italic; */
+  font-style: italic;
+  text-decoration: none;
   margin-left: 5px;
   margin-right: 5px;
   font-size: 18px;
   font-weight: 600;
+  color: black
 }
 
 .add-workout-header {
   font-family: Garamond, Georgia, sans-serif;
-  /* font-style: italic; */
+  font-style: italic;
+  text-decoration: none;
   margin-left: 5px;
   margin-right: 5px;
   font-size: 18px;
   font-weight: 600;
+  color: black
 }
 
 .workouts-card-info {

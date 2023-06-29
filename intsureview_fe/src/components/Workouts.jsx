@@ -3,7 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export default function WorkoutDetail() {
+export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
 
   const getWorkouts = async () => {
@@ -21,7 +21,11 @@ export default function WorkoutDetail() {
       <h1>Workouts</h1>
       <div className="workouts-card-info">
         {workouts.map((workout, index) => (
-          <Card className="m-2 rounded shadow-lg" style={{ width: "18rem" }}>
+          <Card
+            className="m-2 rounded shadow-lg"
+            style={{ width: "18rem" }}
+            key={index}
+          >
             <Card.Body>
               <Card.Title>{workout.type}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">

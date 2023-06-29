@@ -6,10 +6,12 @@ export default function Header() {
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand to="/">Rise Up</Navbar.Brand>
+        <NavLink className="header-title" to="/">
+          Rise Up
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav className="mr-auto">
-          <NavLink className="workouts-header" to="/workoutDetail">
+          <NavLink className="workouts-header" to="/workouts">
             Workouts
           </NavLink>
           <NavLink className="add-workout-header" to="/addWorkout">
