@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import WorkoutForm from "./WorkoutForm";
 
 export default function AddWorkout() {
-  return <div>AddWorkout</div>;
+  return (
+    <>
+      <WorkoutForm />
+    </>
+  );
 }

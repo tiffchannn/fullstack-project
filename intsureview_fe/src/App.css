@@ -44,3 +44,10 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+.workouts-card-info {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 2px;
+}

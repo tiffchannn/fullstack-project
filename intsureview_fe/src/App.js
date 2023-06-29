@@ -4,6 +4,7 @@ import UpdateWorkout from './components/UpdateWorkout';
 import Main from './views/Main';
 import Home from './components/Home';
 import AddWorkout from './components/AddWorkout';
+import WorkoutDetail from './components/WorkoutDetail';
 import { BrowserRouter, Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/workoutDetail" element={<WorkoutDetail />} />
           <Route path="/addWorkout" element={<AddWorkout />} />
         </Routes>
       </BrowserRouter>
